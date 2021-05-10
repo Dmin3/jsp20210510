@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<% String str = "hello";
+out.write(" <h1> scriptlet으로 작성한 코드 </h1> ");
+%>
 <h1>scriptlet</h1>
 <p>java code를 작성 할 수 있는 요소</p>
 
@@ -17,5 +19,13 @@
 3.declaration (선언부)
  --%>
 
+<%-- scriptlet 작성법 --%>
+<%
+// <% 안에서는 자바코드 작성할 수 있음
+
+
+
+System.out.println("console");
+%>
 </body>
 </html>
