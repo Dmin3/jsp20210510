@@ -5,6 +5,7 @@ public class Employee {
 	private String lastName;
 	private String firstName;
 	private String id;
+	private String notes;
 	
 	
 	
@@ -26,6 +27,12 @@ public class Employee {
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 	
 }

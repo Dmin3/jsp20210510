@@ -20,3 +20,12 @@ ORDER BY City; -- 오름차순으로 결과를 보여줌
 
 SELECT CustomerName, City FROM Customers
 WHERE CustomerID;
+
+SELECT LastName ,FirstName FROM Employees;
+
+SELECT EmployeeID, LastName ,FirstName 
+FROM Employees;
+
+SELECT EmployeeID, LastName ,FirstName, Notes 
+FROM Employees;
+
