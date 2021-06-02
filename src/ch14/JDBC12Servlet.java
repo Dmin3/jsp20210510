@@ -88,7 +88,7 @@ private List<Employee> executeJDBC() {
 			
 			 
 			 Employee employee = new Employee();
-			 employee.setId(rs.getString(1));
+			 employee.setId(rs.getInt(1));
 			 employee.setLastName(rs.getString(2));
 			 employee.setFirstName(rs.getString(3));
 			 employee.setNotes(rs.getString(4));

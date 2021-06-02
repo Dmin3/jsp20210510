@@ -90,7 +90,7 @@ private Employee executeJDBC(String id) {
 			 String firstName = rs.getString(2);
 			 
 			 emp = new Employee();
-			 emp.setId(id);
+			 emp.setId(Integer.parseInt(id));
 			 emp.setLastName(lastName);
 			 emp.setFirstName(firstName);
 			 
