@@ -7,12 +7,12 @@
 	|
 	<a href="<%= request.getContextPath() %>/sample2/signup">회원가입</a>
 	|
-	<c:if test="${empty userLogined }">
+	<c:if test="${empty userLogined }"> <%-- 만약 정보보기 없다면 로그인을 표시 --%>
 		<a href="<%= request.getContextPath() %>/sample2/login">로그인</a>
 	|
 	</c:if>
 	
-	<c:if test="${not empty sessionScope.userLogined }">
+	<c:if test="${not empty sessionScope.userLogined }"> <%-- 만약 세션객체 정보보기가 있다면 --%>
 	<a href="<%= request.getContextPath() %>/sample2/info">정보보기</a>
 	|
 	<a href="<%= request.getContextPath() %>/sample2/logout">로그아웃</a>
