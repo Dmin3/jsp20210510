@@ -12,20 +12,20 @@
 
 <title>Insert title here</title>
 <script>
-var url = "${pageContext.request.contextPath }"+"/sample2/checkup";
+var url = "${pageContext.request.contextPath}" + "/sample2/member/checkdup";
 
-$(document).ready(function(){
-	$("#button1").click(function(){
+$(document).ready(function() {
+	$("#button1").click(function() {
 		var id = $("#input1").val();
 		
 		$.post(url,{id: id}, function(data){
 			if(data == 'ok'){
 				// 가입 가능 메세지
-				console.log("ok");
+				//console.log("ok");
 				$("#span1").text("사용 가능");
 			} else {
 				// 가입 불가능 메세지
-				console.log("not ok");
+				//console.log("not ok");
 				$("#span1").text("사용 불가능");
 			}
 		});
@@ -35,7 +35,7 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="container">
-	<form action="${pageContext.request.contextPath }/sample2/signup" method="post">
+	<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
 		id :  <br>
 		<input type="text" name="id" id="input1" />
 		<button id="button1" type="button">중복확인</button>

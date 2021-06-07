@@ -1,28 +1,27 @@
-package sample2.controller;
+package sample2.controller.member;
 
 import java.io.IOException;
-import java.sql.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2SignupServlet
+ * Servlet implementation class Sample2LoginServlet
  */
-@WebServlet("/sample2/signup")
-public class Sample2SignupServlet extends HttpServlet {
+@WebServlet("/sample2/member/login")
+public class Sample2LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2SignupServlet() {
+    public Sample2LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +30,7 @@ public class Sample2SignupServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/sample2/signup.jsp";
+		String path = "/WEB-INF/sample2/member/login.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
@@ -41,33 +40,23 @@ public class Sample2SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		//request parameter 수집
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		String name = request.getParameter("name");
-		String birth = request.getParameter("birth");
 		
-		//Member bean 완성
-		Member member = new Member();
-		member.setId(id);
-		member.setName(name);
-		member.setPassword(password);
-		member.setBirth(Date.valueOf(birth));
-		
-		//dao insert 메소드 호출
 		MemberDao dao = new MemberDao();
-		boolean ok = dao.insert(member);
-		//forward or redirect
-		if(ok) {
-			String path = request.getContextPath() + "/sample2/list";
+		Member member = dao.getMember(id);
+		
+		if(member != null && member.getPassword().equals(password)) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userLogined", member);
+			String path = request.getContextPath() + "/sample2/main";
 			response.sendRedirect(path);
 		} else {
-			request.setAttribute("message", " 가입실패 ");
-			String path = "/WEB-INF/sample2/signup.jsp";
+			String path = "/WEB-INF/sample2/member/login.jsp";
+			request.setAttribute("message", "아이디 나 패스워드가 일치하지 않음");
 			request.getRequestDispatcher(path).forward(request, response);
+			
 		}
-		
-		
 		
 	}
 
