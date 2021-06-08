@@ -12,7 +12,16 @@ public class BoardDto {
 	private String body;
 	private String memberName;
 	private Timestamp inserted;
+	private String memberId;
+
 	
+	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
 	
 	public int getBoardId() {
 		return boardId;

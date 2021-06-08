@@ -39,4 +39,4 @@ public class Sample2MainServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+} 
