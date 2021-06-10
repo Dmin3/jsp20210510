@@ -48,11 +48,16 @@ $(document).ready(function() {
 		
 		<button id="button1" type="button">수정</button>
 		<input id="submit1" type="submit" value="전송" hidden />
-		
 	</form>
 	
 	<s2:message></s2:message>
 	
+	</div>
+	
+	<div>
+	작성한 게시물 : <span>${member.numberOfBoard }</span>개
+	<br>
+	작성한 댓글 : <span>${member.numberOfComment }</span>개
 	</div>
 	
 	<div class="container">

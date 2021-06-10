@@ -9,8 +9,23 @@ public class Member {
 	private String password;
 	private Date birth;
 	private Timestamp inserted;
+	private int numberOfBoard;
+	private int numberOfComment;
 	
 	
+	
+	public int getNumberOfBoard() {
+		return numberOfBoard;
+	}
+	public void setNumberOfBoard(int numberOfBoard) {
+		this.numberOfBoard = numberOfBoard;
+	}
+	public int getNumberOfComment() {
+		return numberOfComment;
+	}
+	public void setNumberOfComment(int numberOfComment) {
+		this.numberOfComment = numberOfComment;
+	}
 	public Timestamp getInserted() {
 		return inserted;
 	}
